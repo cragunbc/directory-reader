@@ -1,0 +1,24 @@
+{
+  "name": "directory-reader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cragunbc/directory-reader.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cragunbc/directory-reader/issues"
+  },
+  "homepage": "https://github.com/cragunbc/directory-reader#readme",
+  "devDependencies": {
+    "@types/node": "^24.10.1"
+  }
+}
