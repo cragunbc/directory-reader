@@ -43,9 +43,12 @@ Programming language used:
 - [Code with Mosh Tutorials](https://codewithmosh.com/)
 - [TypeScript basics video](https://www.youtube.com/watch?v=ahCwqrYpIuM)
 - [TypeScript Docs](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+- [Document on try/catch blocks](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
+- [Video on try/catch blocks](https://www.youtube.com/watch?v=NwoAZF66_Go)
+- [Node fs methods](https://www.geeksforgeeks.org/node-js/node-js-fs-stat-method/)
 
 # Future Work
 
-- Item 1: I could add more color to the terminal so that it's easier to read certain sections of the results
+- Item 1: I could implement more color and formatting so that it's easier to read certain sections of the results
 - Item 2: 
 - Item 3: 
