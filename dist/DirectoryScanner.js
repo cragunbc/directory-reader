@@ -41,6 +41,8 @@ class Scanner {
     constructor(directory) {
         this.fileResults = []; // Defines the fileResults property as a list of strings
         this.directoryResults = []; // Defines the directoryResults property as a list of strings
+        this.recursiveFiles = [];
+        this.recursiveDirectories = [];
         this.directory = directory; // Instantiates the directory for use in the project
     }
     async main() {
@@ -90,6 +92,12 @@ class Scanner {
         console.log("\nRecursive Results:"); // Prints the words "Recursive Results"
         console.log("--------------------"); // Prints a divider line
     }
+    async printRecursiveStats() {
+        console.log("\nRecursive Statistics:");
+        console.log("--------------------");
+        console.log(`Number of directories: ${this.recursiveDirectories.length}`);
+        console.log(`Number of files: ${this.recursiveFiles.length}`);
+    }
     async scanRecursively(currentDirectory, maxDepth, currentDepth) {
         try {
             if (currentDepth > maxDepth) { // Checks to see if the depth of how many files deep you want to go is greater then 2
@@ -101,10 +109,12 @@ class Scanner {
                 const stat = await fs.stat(itemPath); // Defines a variable to say if the file is a file or a directory
                 if (stat.isDirectory()) { // If stat is equal to a directory
                     console.log(`${"  ".repeat(currentDepth)}[Directory 📁] ${item}`); // We print on the screen empty spaces for however much the depth is and the directory
+                    this.recursiveDirectories.push(item);
                     await this.scanRecursively(itemPath, maxDepth, currentDepth + 1); // Calls the function again to go through the contents of the directory
                 }
                 else { // Otherwise if the content is a file
                     console.log(`${"  ".repeat(currentDepth)}[File 📄] ${item} - ${stat.size} bytes`); // Spaces are printed to the terminal and the name of the file is also printed
+                    this.recursiveFiles.push(item);
                 }
             }
         }
@@ -121,6 +131,7 @@ async function runScanner() {
     await scanner.printStats(); // Awaits the printStats from the scanner
     await scanner.printRecursiveInfo(); // Awaits the printRecursiveInfo from the scanner
     await scanner.scanRecursively(scanner.directory, 1, 0); // Awaits the scanRecursively from the scanner with the current directory
+    await scanner.printRecursiveStats();
 }
 runScanner(); // Runs the runScanner function that was created so that results are printed to the terminal
 //# sourceMappingURL=DirectoryScanner.js.map
