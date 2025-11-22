@@ -124,7 +124,7 @@ class Scanner {
     }
 }
 async function runScanner() {
-    const scanner = new Scanner(path.join("C:\\College\\cse310")); // Defines a new instance of the Scanner class and passes in the directory path
+    const scanner = new Scanner(path.join(__dirname, "..")); // Defines a new instance of the Scanner class and passes in the directory path
     await scanner.main(); // Awaits the main function from the scanner
     await scanner.printDirectoryResults(); // Awaits the printDirectoryResults from the scanner
     await scanner.printFileResults(); // Awaits the printFileResults from the scanner
