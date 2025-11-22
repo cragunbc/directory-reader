@@ -41,8 +41,8 @@ class Scanner {
     constructor(directory) {
         this.fileResults = []; // Defines the fileResults property as a list of strings
         this.directoryResults = []; // Defines the directoryResults property as a list of strings
-        this.recursiveFiles = [];
-        this.recursiveDirectories = [];
+        this.recursiveFiles = []; // Defines the recursiveFiles property as a list of strings
+        this.recursiveDirectories = []; // Defines the recursiveDirectories property as a list of strings
         this.directory = directory; // Instantiates the directory for use in the project
     }
     async main() {
@@ -64,8 +64,8 @@ class Scanner {
                 }
             }
         }
-        catch (error) {
-            console.error(`There was and error while reading the following directory: ${this.directory}`);
+        catch (error) { // Defines a catch block that catches any error that comes from the try block
+            console.error(`There was and error while reading the following directory: ${this.directory}`); // Prints a message with the error message
         }
     }
     async printDirectoryResults() {
@@ -93,10 +93,10 @@ class Scanner {
         console.log("--------------------"); // Prints a divider line
     }
     async printRecursiveStats() {
-        console.log("\nRecursive Statistics:");
-        console.log("--------------------");
-        console.log(`Number of directories: ${this.recursiveDirectories.length}`);
-        console.log(`Number of files: ${this.recursiveFiles.length}`);
+        console.log("\nRecursive Statistics:"); // Prints the words "Recursive Statistics"
+        console.log("--------------------"); // Prints a divider line
+        console.log(`Number of directories: ${this.recursiveDirectories.length}`); // Prints the number of directories that come from the recursive function
+        console.log(`Number of files: ${this.recursiveFiles.length}`); // Prints the number of files that comes from the recursive function
     }
     async scanRecursively(currentDirectory, maxDepth, currentDepth) {
         try {
@@ -109,29 +109,29 @@ class Scanner {
                 const stat = await fs.stat(itemPath); // Defines a variable to say if the file is a file or a directory
                 if (stat.isDirectory()) { // If stat is equal to a directory
                     console.log(`${"  ".repeat(currentDepth)}[Directory 📁] ${item}`); // We print on the screen empty spaces for however much the depth is and the directory
-                    this.recursiveDirectories.push(item);
+                    this.recursiveDirectories.push(item); // Pushes the name of the directory to the list
                     await this.scanRecursively(itemPath, maxDepth, currentDepth + 1); // Calls the function again to go through the contents of the directory
                 }
                 else { // Otherwise if the content is a file
                     console.log(`${"  ".repeat(currentDepth)}[File 📄] ${item} - ${stat.size} bytes`); // Spaces are printed to the terminal and the name of the file is also printed
-                    this.recursiveFiles.push(item);
+                    this.recursiveFiles.push(item); // Pushes the name of the file to the list
                 }
             }
         }
-        catch (error) {
-            console.error(`There was an error reading the following directory: ${currentDirectory}`);
+        catch (error) { // Defines a catch block that catches the error that comes from the try block
+            console.error(`There was an error reading the following directory: ${currentDirectory}`); // Prints a message with the error
         }
     }
 }
 async function runScanner() {
-    const scanner = new Scanner(path.join(__dirname, "..")); // Defines a new instance of the Scanner class and passes in the directory path
+    const scanner = new Scanner(path.join("C:\\College\\cse310")); // Defines a new instance of the Scanner class and passes in the directory path
     await scanner.main(); // Awaits the main function from the scanner
     await scanner.printDirectoryResults(); // Awaits the printDirectoryResults from the scanner
     await scanner.printFileResults(); // Awaits the printFileResults from the scanner
     await scanner.printStats(); // Awaits the printStats from the scanner
     await scanner.printRecursiveInfo(); // Awaits the printRecursiveInfo from the scanner
     await scanner.scanRecursively(scanner.directory, 1, 0); // Awaits the scanRecursively from the scanner with the current directory
-    await scanner.printRecursiveStats();
+    await scanner.printRecursiveStats(); // Awaits the printRecursiveStats from the scanner
 }
 runScanner(); // Runs the runScanner function that was created so that results are printed to the terminal
 //# sourceMappingURL=DirectoryScanner.js.map

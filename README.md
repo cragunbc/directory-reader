@@ -1,15 +1,15 @@
 # Overview
 
-With this program I'm trying to prove that I can write a TypeScript program having learned a little bit of JavaScript. I'm also trying to become more familiar with
-Node and it's involvement with JavaScript so that I can run JavaScript code locally in my VS Code terminal without needing to open a web browser.
+With this program I'm trying to prove that I can write a TypeScript program having learned a little bit of JavaScript. I'm also trying to become more familiar with using the file system search so that I can know how to read files in a program that I create.
+I'm also wanting to demonstrate my understanding of Node and it's involvement with JavaScript so that I can run JavaScript code locally in my VS Code terminal without needing to open a web browser.
 
-The program that I wrote is a directory reader program. What the program is meant to accomplish is to look at the directory that it's provided and loop through each
-item in the directory. It will then do a couple of things, which are listed below:
+The program that I wrote is a directory reader program. What the program is meant to accomplish is to look at the directory that it's provided and loop through each item in the directory. It will then do a couple of things, which are listed below:
 - Tell you what directory you passed in
 - Tell you how many directories are found in the directory
 - Tell you how many files are in the directory
 - Tell you the results of how many directories and files were found
 - Gives you the breakdown of what files fall under the given directory
+- Give the size of each file
 
 # Program Purpose
 The purpose for me writting this program is to demonstrate my basic understanding of the TypeScript language and it's relationship with JavaScript so that I can run JavaScript code locally on my machine without using a browser. Principles that were proven in this project are the following:
@@ -50,5 +50,5 @@ Programming language used:
 # Future Work
 
 - Item 1: I could implement more color and formatting so that it's easier to read certain sections of the results
-- Item 2: 
-- Item 3: 
+- Item 2: I could add a filter that would specify files/folders that we don't want to loop over
+- Item 3: I could add a function that would convert the size of the files to MB or KB
